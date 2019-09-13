@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C6A65A1B-1823-4767-AD90-F11D295C8452}</ProjectGuid>
+    <ProjectGuid>{2E7B9A89-D360-4028-A725-FC375583754B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WestWindSystem</RootNamespace>
@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\CRUDController.cs" />
     <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\BuildVersion.cs" />
     <Compile Include="Entities\Category.cs" />
@@ -66,12 +67,13 @@
     <Compile Include="Entities\Shipper.cs" />
     <Compile Include="Entities\Supplier.cs" />
     <Compile Include="Entities\Territory.cs" />
-    <Compile Include="Entities\WestWindContext.cs" />
+    <Compile Include="DAL\WestWindContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
