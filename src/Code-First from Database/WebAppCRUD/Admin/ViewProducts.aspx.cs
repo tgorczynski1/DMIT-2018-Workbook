@@ -13,5 +13,10 @@ namespace WebAppCRUD.Admin
         {
 
         }
+
+        protected void ProductGridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
