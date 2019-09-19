@@ -24,3 +24,7 @@ public IEnumerable<string> Instructors
 	    yield return "Steve";
 	}
 }
+
+// google "yield" 
+// static vs non-static 
+// 
