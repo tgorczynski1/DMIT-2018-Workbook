@@ -13,5 +13,10 @@ namespace WebAppCRUD.Admin
         {
 
         }
+
+        protected void SuppliersListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
