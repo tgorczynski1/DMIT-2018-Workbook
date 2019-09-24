@@ -52,6 +52,16 @@ namespace WestWindSystem.BLL
                 context.SaveChanges();
             }
         }
+        [DataObjectMethod(DataObjectMethodType.Delete)]
+        public void DeleteSupplier (Supplier item)
+        {
+            using (var context = new WestWindContext())
+            {
+                var existing = context.Suppliers.Find(item.SupplierID);
+                context.Suppliers.Remove(existing);
+                context.SaveChanges();
+            }
+        }
         #endregion
 
 
