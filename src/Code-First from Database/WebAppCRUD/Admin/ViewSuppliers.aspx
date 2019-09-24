@@ -3,9 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>View Suppliers</h1>
 
+        <asp:Label ID="MessageLabel" runat="server"></asp:Label>
+
     <asp:ListView ID="SuppliersListView" runat="server"
         DataSourceID="SuppliersDataSource"
         InsertItemPosition="FirstItem"
+        OnItemInserting="SuppliersListView_ItemInserting"
+        OnItemInserted="SuppliersListView_ItemInserted"
         ItemType="WestWindSystem.Entities.Supplier">
 
         <%-- the column headings are declared here = th = table header --%>
@@ -28,7 +32,7 @@
 
         <%-- for inserting records, a full row on the table --%>
         <InsertItemTemplate>
-            <tr class="bg-success">
+            <tr class="bg-info">
                 <td>
                     <asp:LinkButton ID="AddSupplier" runat="server"
                         CssClass="btn btn-success glyphicon glyphicon-plus"
@@ -80,9 +84,9 @@
 
         <%-- This Update item template is for updating records in a gridview setting. BindItem is semantic, bind => item --%>
         <EditItemTemplate>
-            <tr class="bg-info">
+            <tr class="bg-success">
                 <td>
-                    <asp:LinkButton ID="UpdateSupplier" runat="server" CssClass="btn btn-success glyphicon glyphicon-plus" CommandName="Update">Update</asp:LinkButton></td>
+                    <asp:LinkButton ID="UpdateSupplier" runat="server" CssClass="btn btn-success glyphicon glyphicon-ok" CommandName="Update">Update</asp:LinkButton></td>
                 <td>
                     <asp:TextBox ID="CompanyName" runat="server" Text="<%# BindItem.CompanyName %>"
                         placeholder="Enter company name: ">
@@ -132,6 +136,14 @@
         </ItemTemplate>
     </asp:ListView>
 
-    <asp:ObjectDataSource ID="SuppliersDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="ListSuppliers" TypeName="WestWindSystem.BLL.CRUDController" DataObjectTypeName="WestWindSystem.Entities.Supplier" InsertMethod="AddSupplier"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="SuppliersDataSource" runat="server" 
+        OldValuesParameterFormatString="original_{0}" 
+        SelectMethod="ListSuppliers"
+        TypeName="WestWindSystem.BLL.CRUDController"
+        DataObjectTypeName="WestWindSystem.Entities.Supplier" 
+        InsertMethod="AddSupplier"
+        OnInserting="SuppliersDataSource_Inserting"
+        OnInserted="SuppliersDataSource_Inserted"></asp:ObjectDataSource>
+
     <asp:ObjectDataSource ID="AddressDataSource"  runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="ListAddresss" TypeName="WestWindSystem.BLL.CRUDController"></asp:ObjectDataSource>
 </asp:Content>
