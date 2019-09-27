@@ -1,4 +1,10 @@
-<Query Kind="Expression" />
+<Query Kind="Expression">
+  <Connection>
+    <ID>05a2444e-14ea-4451-ad3d-3398e9ff7898</ID>
+    <Server>.</Server>
+    <Database>WestWind</Database>
+  </Connection>
+</Query>
 
 // Practice questions - do each one in a separate LinqPad query.
 /*
@@ -15,3 +21,35 @@ H) List all the discontinued products, specifying the product name and unit pric
 I) List the company names of all Suppliers in North America (Canada, USA, Mexico)
 
 */
+//A.
+from person in Customers
+where person.Orders.Count > 5
+select new 
+{
+		person.CompanyName,
+		person.Orders.Count
+}
+
+//B. 
+
+from row in Regions
+select row.RegionDescription
+
+//C. 
+
+from row in Territories
+select row.TerritoryDescription
+
+//D.
+
+
+
+
+
+
+
+
+
+
+
+
