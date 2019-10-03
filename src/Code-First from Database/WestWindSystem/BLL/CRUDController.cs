@@ -42,8 +42,9 @@ namespace WestWindSystem.BLL
                 context.SaveChanges();
             }
         }
+
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public void UpdateSupplier (Supplier item)
+        public void UpdateSupplier(Supplier item)
         {
             using (var context = new WestWindContext())
             {
@@ -52,8 +53,9 @@ namespace WestWindSystem.BLL
                 context.SaveChanges();
             }
         }
+
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void DeleteSupplier (Supplier item)
+        public void DeleteSupplier(Supplier item)
         {
             using (var context = new WestWindContext())
             {
@@ -63,7 +65,6 @@ namespace WestWindSystem.BLL
             }
         }
         #endregion
-
 
         #region Categories CRUD
         [DataObjectMethod(DataObjectMethodType.Select)]
@@ -78,11 +79,43 @@ namespace WestWindSystem.BLL
 
         #region Addresses CRUD
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Address> ListAddresss()
+        public List<Address> ListAddresses()
         {
             using (var context = new WestWindContext())
             {
                 return context.Addresses.ToList();
+            }
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Insert)]
+        public void AddAddress(Address item)
+        {
+            using (var context = new WestWindContext())
+            {
+                context.Addresses.Add(item);
+                context.SaveChanges();
+            }
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public void UpdateAddress(Address item)
+        {
+            using (var context = new WestWindContext())
+            {
+                var existing = context.Entry(item);
+                existing.State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Delete)]
+        public void DeleteAddress(Address item)
+        {
+            using (var context = new WestWindContext())
+            {
+                var existing = context.Addresses.Find(item.AddressID);
+                context.Addresses.Remove(existing);
+                context.SaveChanges();
             }
         }
         #endregion
