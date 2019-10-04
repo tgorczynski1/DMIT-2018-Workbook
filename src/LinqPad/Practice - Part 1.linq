@@ -1,8 +1,10 @@
 <Query Kind="Expression">
   <Connection>
-    <ID>05a2444e-14ea-4451-ad3d-3398e9ff7898</ID>
+    <ID>6ae06d34-9504-48a1-82b9-85bb2c60c64c</ID>
+    <Persist>true</Persist>
     <Server>.</Server>
     <Database>WestWind</Database>
+    <AlphabetizeColumns>true</AlphabetizeColumns>
   </Connection>
 </Query>
 
@@ -41,6 +43,68 @@ from row in Territories
 select row.TerritoryDescription
 
 //D.
+
+from row in Regions 
+select new 
+{
+	row.RegionDescription,
+	row.Territories.Count
+}
+
+//E. 
+
+from row in Regions 
+select new 
+{
+	row.RegionDescription,
+	row.Territories
+}
+
+//F.
+
+from row in Regions 
+select new 
+{
+	Region = row.RegionDescription,
+	Territory = from item in row.Territories
+					select item.TerritoryDescription
+}
+
+//G) List all the product names that contain the word "chef" in the name.
+//H) List all the discontinued products, specifying the product name and unit price.
+//I) List the company names of all Suppliers in North America (Canada, USA, Mexico)
+
+//G.
+from product in Products
+where product.ProductName.Contains("chef")
+select product
+
+//H. 
+from product in Products 
+where product.Discontinued == true
+select new 
+{
+	product.ProductName,
+	product.UnitPrice
+}
+//I.
+
+from supplier in Suppliers 
+where supplier.Address.Country == "Canada" || 
+		supplier.Address.Country == "USA" ||
+		supplier.Address.Country == "Mexico"
+select new
+{
+	supplier.CompanyName
+}
+
+
+
+
+
+
+
+
 
 
 
