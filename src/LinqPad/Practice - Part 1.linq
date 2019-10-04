@@ -98,22 +98,3 @@ select new
 	supplier.CompanyName
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
