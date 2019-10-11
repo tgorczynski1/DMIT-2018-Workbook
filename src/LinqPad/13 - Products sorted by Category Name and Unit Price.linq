@@ -1,8 +1,10 @@
 <Query Kind="Expression">
   <Connection>
-    <ID>05a2444e-14ea-4451-ad3d-3398e9ff7898</ID>
+    <ID>af508a97-5670-42ec-b71b-8cc473cabf0e</ID>
+    <Persist>true</Persist>
     <Server>.</Server>
     <Database>WestWind</Database>
+    <ShowServer>true</ShowServer>
   </Connection>
 </Query>
 
@@ -14,4 +16,4 @@ select new
     Product = item.ProductName,
 	Category = item.Category.CategoryName,
 	Price = item.UnitPrice
-}
+}d
