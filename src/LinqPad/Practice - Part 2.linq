@@ -24,18 +24,18 @@
  * 
  */
 
-from row in Employees
-group row by row.Address.Region into EmployeesByRegion
+from place in Regions
 select new 
 {
-	Region = EmployeesByRegion.Key,
-	Employees = from data in EmployeesByRegion
-					select new 
-					{
-						FirstName = data.FirstName,
-						LastName = data.LastName					
-					}
-
+	Region = place.RegionDescription,
+	Employees = (from area in place.Territories
+					from manager in area.EmployeeTerritories
+						select manager.Employee.FirstName + " " + manager.Employee.LastName).Distinct(),
+	Employees2 = from area in place.Territories
+					from manager in area.EmployeeTerritories
+						group manager by manager.Employee into areaManagers
+						select areaManagers.Key.FirstName + " " + areaManagers.Key.LastName
+					
 }
 
 
