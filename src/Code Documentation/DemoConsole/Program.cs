@@ -11,6 +11,18 @@ namespace DemoConsole
         static void Main(string[] args)
         {
             var shipInfo = new ShippingDirections();
+            ShipOrder(5, shipInfo, null);
+            
+        }
+        /// <summary>
+        /// Processes the order shipment 
+        /// </summary>
+        /// <param name="OrderId">The ID of the order being shipped</param>
+        /// <param name="shipping">The <see cref="ShippingDirections"/> of the items being shipped</param>
+        /// <param name="products"></param>
+        static void ShipOrder(int OrderId, ShippingDirections shipping, List<ShippedItem> products)
+        {
+
         }
     }
 
