@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -16,9 +17,16 @@ namespace WebApp.Admin.Security
          * }
          */
         public static string UserRole => ConfigurationManager.AppSettings["userRole"];
+
+        public static IEnumerable<string> DefaultSecurityRoles => new List<string> { AdminRole, UserRole };
         #endregion
 
         #region Startup Roles
+        public static string AdminUserName => ConfigurationManager.AppSettings["adminUserName"];
+        public static string AdminPassword => ConfigurationManager.AppSettings["adminPassword"];
+        public static string AdminEmail => ConfigurationManager.AppSettings["adminEmail"];
+        public static string TempPassword => ConfigurationManager.AppSettings["temporaryUserPassword"];
+
         #endregion
     }
 }
