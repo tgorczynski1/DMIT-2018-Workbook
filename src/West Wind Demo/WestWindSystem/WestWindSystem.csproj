@@ -59,7 +59,6 @@
     <Compile Include="DataModels\Class2.cs" />
     <Compile Include="DataModels\Class3.cs" />
     <Compile Include="DataModels\Class4.cs" />
-    <Compile Include="DataModels\Class5.cs" />
     <Compile Include="DataModels\DatabaseVersion.cs" />
     <Compile Include="DataModels\EditCustomerOrder.cs" />
     <Compile Include="DataModels\InvoiceHeader.cs" />
