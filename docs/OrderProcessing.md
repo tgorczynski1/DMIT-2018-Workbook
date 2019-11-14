@@ -80,8 +80,6 @@ public class ShippedItem
     public string FullShippingAddress {get; set;}
     public string Comments {get; set;}
 }
-
-```csharp
 public class OrderItem 
 {
     public int ProductID {get; set;}
