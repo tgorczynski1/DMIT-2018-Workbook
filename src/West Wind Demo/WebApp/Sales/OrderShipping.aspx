@@ -9,9 +9,15 @@
                 <asp:Literal ID="SupplierInfo" runat="server"></asp:Literal>
             </p>
             <asp:ListView ID="CurrentOrders" runat="server" DataSourceID="SupplierOrderDataSource">
-                
+                <ItemTemplate>
+
+                </ItemTemplate>
             </asp:ListView>
-            <asp:ObjectDataSource ID="SupplierOrderDataSource" runat="server"></asp:ObjectDataSource>
+            <asp:ObjectDataSource ID="SupplierOrderDataSource" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="LoadOrders" TypeName="WestWindSystem.BLL.OrderProcessingController">
+                <SelectParameters>
+                    <asp:Parameter DefaultValue="2" Name="supplierId" Type="Int32"></asp:Parameter>
+                </SelectParameters>
+            </asp:ObjectDataSource>
         </div>
     </div>
 

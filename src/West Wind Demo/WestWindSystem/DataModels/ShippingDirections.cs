@@ -1,6 +1,6 @@
 ﻿namespace WestWindSystem.DataModels
 {
-    partial class Class1
+    public class Class1
     {
         public class ShippingDirections
         {

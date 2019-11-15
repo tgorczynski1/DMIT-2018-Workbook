@@ -7,7 +7,7 @@ using static WestWindSystem.DataModels.Class4;
 
 namespace WestWindSystem.DataModels
 {
-    class Class2
+    public class Class2
     {
         public class OutstandingOrder
         {

@@ -14,11 +14,11 @@ using static WestWindSystem.DataModels.Class4;
 namespace WestWindSystem.BLL
 {
     [DataObject]
-    class OrderProcessingController
+    public class OrderProcessingController
     {
         #region Queries
 
-        [DataObjectMethod(DataObjectMethodType.Select)]
+        //[DataObjectMethod(DataObjectMethodType.Select)]
         public List<OutstandingOrder> LoadOrders(int supplierId)
         {
             // TODO: implement this method with the following
@@ -70,8 +70,6 @@ namespace WestWindSystem.BLL
                 return result.ToList();
             }
         }
-
-        [DataObjectMethod(DataObjectMethodType.Select)]
         public List<ShipperSelection> ListShippers()
         {
             using (var context = new WestWindContext())

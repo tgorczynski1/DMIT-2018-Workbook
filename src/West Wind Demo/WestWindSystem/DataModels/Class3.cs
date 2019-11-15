@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WestWindSystem.DataModels
 {
-    partial class Class3
+    public class Class3
     {
         public class ShipperSelection
         {
