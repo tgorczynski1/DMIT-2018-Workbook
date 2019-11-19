@@ -8,7 +8,7 @@
             <p>
                 <asp:Literal ID="SupplierInfo" runat="server" />
             </p>
-            <asp:ListView ID="CurrentOrders" runat="server"
+            <asp:ListView ID="CurrentOrders" runat="server" OnItemCommand="CurrentOrders_ItemCommand"
                 DataSourceID="SupplierOrdersDataSource"
                 ItemType="WestWindSystem.DataModels.OutstandingOrder">
                 <EditItemTemplate>
@@ -39,7 +39,7 @@
                                 DataSourceID="ShippersDataSource"
                                 DataTextField="Shipper" DataValueField="ShipperId"
                                 AppendDataBoundItems="true">
-                                <asp:ListItem Value="">[Select a Shipper]</asp:ListItem>
+                                <asp:ListItem Value="0">[Select a Shipper]</asp:ListItem>
                             </asp:DropDownList>
                             <asp:GridView ID="ProductsGridView" runat="server"
                                 CssClass="table table-hover table-condensed"
