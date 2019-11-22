@@ -50,8 +50,8 @@ namespace WebApp.Sales
                 if(trackingcodeTxtBox != null)                
                     shipInfo.TrackingCode = (trackingcodeTxtBox.Text);
 
-                //decimal price; 
-                if (freightchargeTxtBox != null) //decimal.TryParse(freight.Text, out price)
+                decimal price;
+                if (freightchargeTxtBox != null && decimal.TryParse(freightchargeTxtBox.Text, out price))
                     shipInfo.FreightCharge = decimal.Parse(freightchargeTxtBox.Text);
                 //shipInfo.FreightCharge = price;
 
